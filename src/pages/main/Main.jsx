@@ -6,7 +6,7 @@ import Pagination from '../../component/main/pagination/Pagination';
 
 const Main = () => {
   return (
-    <div>
+    <div className={styled.main}>
       <SearchSection />
       <ListSection />
       <Pagination />

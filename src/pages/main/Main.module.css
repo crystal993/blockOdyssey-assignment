@@ -1,0 +1,8 @@
+.main {
+    background-color: #D2D5D5;
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x:hidden;  
+    overflow-y:hidden;
+}
