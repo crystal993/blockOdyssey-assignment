@@ -1,8 +1,9 @@
 .wrapper {
-
+    display: flex;
 }
 
 .button {
+    height: 40px;
     font-weight: 500;
     transition: 100ms ease-out;
     cursor: pointer;
@@ -25,7 +26,6 @@ button.primary:hover {
 
 /* size */
 .md {
-    height: 38px;
     width: 60px;
     font-size: 12px;
     padding: 10px 13px;

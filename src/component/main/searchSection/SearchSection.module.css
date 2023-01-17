@@ -24,7 +24,7 @@
 
 
 .lower_wrapper {
-    padding: 10px 15px;
+    padding: 6px 15px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -33,12 +33,15 @@
 
 .search_wrapper {
     display: flex;
-    margin-left: 50px;
-    column-gap: 20px;
+    width: 100%;
+    margin-left: 10%;
+    column-gap: 2%;
+    z-index: 2;
 }
 
 .title {
     display: inline-block;
+    min-width: 30px;
     color: rgb(47, 46, 46);
     font-weight: 900;
     padding: 10px;
