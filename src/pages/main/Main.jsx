@@ -8,6 +8,11 @@ const Main = () => {
   return (
     <div className={styled.main}>
       <SearchSection />
+      <div className={styled.search_result_wrapper}>
+        <div className={styled.search_result}>
+          검색된 데이터 : <p className={styled.highlight}>100</p> 건
+        </div>
+      </div>
       <ListSection />
       <Pagination />
     </div>
