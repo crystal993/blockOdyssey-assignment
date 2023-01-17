@@ -1,0 +1,33 @@
+.wrapper {
+
+}
+
+.button {
+    font-weight: 500;
+    transition: 100ms ease-out;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, color 0.15s ease-in-out;
+    box-shadow: none;
+    outline: none;
+    border: none;
+}
+
+/* variant */
+.primary {
+    background-color: rgb(36, 36, 36);
+    color: white;
+}
+
+button.primary:hover {
+    background-color: rgb(77, 75, 75);
+    color: white;
+}
+
+/* size */
+.md {
+    height: 38px;
+    width: 60px;
+    font-size: 12px;
+    padding: 10px 13px;
+    border-radius: 8px;
+}

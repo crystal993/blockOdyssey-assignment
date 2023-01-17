@@ -34,6 +34,7 @@
 .search_wrapper {
     display: flex;
     margin-left: 50px;
+    column-gap: 20px;
 }
 
 .title {

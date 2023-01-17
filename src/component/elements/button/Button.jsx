@@ -1,9 +1,18 @@
 import React from 'react';
+import styled from './Button.module.css';
 
-const Button = ({text}) => {
+const Button = (props) => {
+  const {onClick, text, variant = 'primary', size = 'md'} = props;
+
   return (
-    <div>
-      <button>{text}</button>
+    <div className={styled.wrapper}>
+      {variant === 'primary' && (
+        <button
+          className={`${styled.button} ${styled.primary} ${styled.md} `}
+          onClick={onClick}>
+          {text}
+        </button>
+      )}
     </div>
   );
 };
