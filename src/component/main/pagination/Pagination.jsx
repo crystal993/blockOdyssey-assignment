@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons';
 
 const Pagination = (props) => {
-  const {page, setPage, hasMore, isPreviousData, total, limit} = props;
+  const {page, setPage, hasMore, isPreviousData, total = 0, limit = 0} = props;
 
   const pageSize = total % limit === 0 ? total / limit : total / limit + 1;
 
@@ -16,9 +16,14 @@ const Pagination = (props) => {
     setPage((old) => (hasMore ? old + 1 : old));
   };
 
+  // 페이지 버튼을 누를 때
+  const onNumPageClick = (e) => {
+    setPage(parseInt(e.target.innerText) - 1);
+    e.stopPropagation();
+  };
+
   return (
     <div className={`${styled.wrapper}`}>
-      <div>Current Page: {page + 1}</div>
       <button
         className={`${styled.button}`}
         onClick={onPreviousPageClick}
@@ -27,8 +32,21 @@ const Pagination = (props) => {
       </button>
       {Array(pageSize)
         .fill(0)
-        .map((_, page) => {
-          return <button className={`${styled.button}`}>{page + 1}</button>;
+        .map((_, i) => {
+          if (i === page)
+            return (
+              <button
+                onClick={onNumPageClick}
+                className={`${styled.button} ${styled.currentPage}`}>
+                {i + 1}
+              </button>
+            );
+          else
+            return (
+              <button onClick={onNumPageClick} className={`${styled.button}`}>
+                {i + 1}
+              </button>
+            );
         })}
       <button
         className={`${styled.button}`}
