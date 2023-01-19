@@ -68,19 +68,17 @@ const ListSection = () => {
               <div className={`${styled.wrapper}`}>Loading...</div>
             )}
             {data?.products.map((product) => (
-              <p key={product.id}>
-                <div className={`${styled.item}`}>
-                  <p className={`${styled.text}`}>{product.id}</p>
-                  <p className={`${styled.text}`}>{product.title}</p>
-                  <p className={`${styled.text}`}>{product.brand}</p>
-                  <p className={`${styled.text} `}>
-                    {ellepsis(product.description)}
-                  </p>
-                  <p className={`${styled.text}`}>{`$${product.price}`}</p>
-                  <p className={`${styled.text}`}>{product.rating}</p>
-                  <p className={`${styled.text}`}>{product.stock}</p>
-                </div>
-              </p>
+              <div key={product.id} className={`${styled.item}`}>
+                <p className={`${styled.text}`}>{product.id}</p>
+                <p className={`${styled.text}`}>{product.title}</p>
+                <p className={`${styled.text}`}>{product.brand}</p>
+                <p className={`${styled.text} `}>
+                  {ellepsis(product.description)}
+                </p>
+                <p className={`${styled.text}`}>{`$${product.price}`}</p>
+                <p className={`${styled.text}`}>{product.rating}</p>
+                <p className={`${styled.text}`}>{product.stock}</p>
+              </div>
             ))}
           </div>
         </div>
