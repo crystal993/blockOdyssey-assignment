@@ -106,7 +106,7 @@ axios CRUD와 관련된 함수들을 추상화하여 관리
 
 redux와 관련되어 있는 폴더 store와 slice 존재
 
-#### 7. 📂 utils 폴더
+#### 6. 📂 utils 폴더
 
 기타 함수들을 관리하는 폴더
 
