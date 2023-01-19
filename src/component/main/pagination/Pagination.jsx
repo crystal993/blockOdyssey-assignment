@@ -2,23 +2,27 @@ import React from 'react';
 import styled from './Pagination.module.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons';
+import {useDispatch} from 'react-redux';
+import {setPage} from '../../../redux/modules/adminSlice';
 
 const Pagination = (props) => {
-  const {page, setPage, hasMore, isPreviousData, total = 0, limit = 0} = props;
+  const dispatch = useDispatch();
+  const {page, hasMore, isPreviousData, total = 0, limit = 0} = props;
 
   const pageSize = total % limit === 0 ? total / limit : total / limit + 1;
 
   // 이전 페이지로 이동
-  const onPreviousPageClick = () => setPage((old) => Math.max(old - 1, 0));
+  const onPreviousPageClick = () =>
+    dispatch(setPage((old) => Math.max(old - 1, 0)));
 
   // 다음 페이지로 이동
   const onNextPageClick = () => {
-    setPage((old) => (hasMore ? old + 1 : old));
+    dispatch(setPage((old) => (hasMore ? old + 1 : old)));
   };
 
   // 페이지 버튼을 누를 때
   const onNumPageClick = (e) => {
-    setPage(parseInt(e.target.innerText) - 1);
+    dispatch(setPage(parseInt(e.target.innerText) - 1));
     e.stopPropagation();
   };
 

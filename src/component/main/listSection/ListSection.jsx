@@ -4,14 +4,19 @@ import Pagination from '../pagination/Pagination';
 import {useQuery, useQueryClient} from '@tanstack/react-query';
 import {getProductListApi} from '../../../api/adminService';
 import {ellepsis} from '../../../utils/ellipsisFunction';
+import {useDispatch, useSelector} from 'react-redux';
+import {
+  setHasMore,
+  setPage,
+  setProducts,
+} from '../../../redux/modules/adminSlice';
 
 const ListSection = () => {
+  const dispatch = useDispatch();
+  const {page, hasMore, limit} = useSelector((state) => state.admin);
   const queryClient = useQueryClient();
-  const [page, setPage] = React.useState(0);
-  const [hasMore, setHasMore] = React.useState(true);
-  const [limit, setLimit] = React.useState(10);
 
-  const {status, data, error, isFetching, isPreviousData} = useQuery({
+  const {status, data, isPreviousData} = useQuery({
     queryKey: ['products', page, limit],
     queryFn: () => getProductListApi(page, limit),
     keepPreviousData: true,
@@ -19,18 +24,19 @@ const ListSection = () => {
   });
 
   React.useEffect(() => {
-    if (page * limit < data?.total - limit) setHasMore(true);
-    else setHasMore(false);
+    if (page * limit < data?.total - limit) dispatch(setHasMore(true));
+    else dispatch(setHasMore(false));
 
     if (!isPreviousData && hasMore) {
       queryClient.prefetchQuery({
         queryKey: ['products', page + 1, limit],
         queryFn: () => getProductListApi(page + 1),
         keepPreviousData: true,
-        // staleTime: 5000,
       });
+      dispatch(setPage(page));
+      dispatch(setProducts(data?.products));
     }
-  }, [data, isPreviousData, page, queryClient, hasMore, limit]);
+  }, [data, isPreviousData, page, queryClient, hasMore, limit, dispatch]);
 
   return (
     <>
@@ -72,9 +78,7 @@ const ListSection = () => {
         <div>
           <Pagination
             page={page}
-            setPage={setPage}
             isPreviousData={isPreviousData}
-            hasMore={hasMore}
             total={data?.total}
             limit={limit}
           />
