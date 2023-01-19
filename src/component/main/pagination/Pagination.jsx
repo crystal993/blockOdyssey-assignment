@@ -2,13 +2,13 @@ import React from 'react';
 import styled from './Pagination.module.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {setPage} from '../../../redux/modules/adminSlice';
 
 const Pagination = (props) => {
   const dispatch = useDispatch();
-  const {page, hasMore, isPreviousData, total = 0, limit = 0} = props;
-
+  const {page, hasMore, limit} = useSelector((state) => state.admin);
+  const {isPreviousData, total = 0} = props;
   const pageSize =
     total % limit === 0 ? total / limit : Math.floor(total / limit) + 1;
 

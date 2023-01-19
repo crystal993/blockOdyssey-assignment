@@ -83,12 +83,7 @@ const ListSection = () => {
           </div>
         </div>
         <div>
-          <Pagination
-            page={page}
-            isPreviousData={isPreviousData}
-            total={data?.total}
-            limit={limit}
-          />
+          <Pagination isPreviousData={isPreviousData} total={data?.total} />
         </div>
       </div>
     </>
