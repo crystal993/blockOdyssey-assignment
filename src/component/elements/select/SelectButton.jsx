@@ -12,8 +12,6 @@ const SelectButton = (props) => {
     const target = e.target;
     const {innerText} = target;
     setCurrentOption(innerText);
-    alert(target.getAttribute('value'));
-    // setCurrentValue(value);
   };
 
   return (

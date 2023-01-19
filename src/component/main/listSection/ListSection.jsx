@@ -13,12 +13,12 @@ import {
 
 const ListSection = () => {
   const dispatch = useDispatch();
-  const {page, hasMore, limit} = useSelector((state) => state.admin);
+  const {keyword, page, hasMore, limit} = useSelector((state) => state.admin);
   const queryClient = useQueryClient();
 
   const {status, data, isPreviousData} = useQuery({
-    queryKey: ['products', page, limit],
-    queryFn: () => getProductListApi(page, limit),
+    queryKey: ['products', page, limit, keyword],
+    queryFn: () => getProductListApi(page, limit, keyword),
     keepPreviousData: true,
     staleTime: 5000,
   });
@@ -29,14 +29,23 @@ const ListSection = () => {
 
     if (!isPreviousData && hasMore) {
       queryClient.prefetchQuery({
-        queryKey: ['products', page + 1, limit],
-        queryFn: () => getProductListApi(page + 1),
+        queryKey: ['products', page + 1, limit, keyword],
+        queryFn: () => getProductListApi(page + 1, limit, keyword),
         keepPreviousData: true,
       });
       dispatch(setPage(page));
       dispatch(setProducts(data?.products));
     }
-  }, [data, isPreviousData, page, queryClient, hasMore, limit, dispatch]);
+  }, [
+    data,
+    isPreviousData,
+    page,
+    queryClient,
+    hasMore,
+    limit,
+    dispatch,
+    keyword,
+  ]);
 
   return (
     <>
