@@ -9,7 +9,8 @@ const Pagination = (props) => {
   const dispatch = useDispatch();
   const {page, hasMore, isPreviousData, total = 0, limit = 0} = props;
 
-  const pageSize = total % limit === 0 ? total / limit : total / limit + 1;
+  const pageSize =
+    total % limit === 0 ? total / limit : Math.floor(total / limit) + 1;
 
   // 이전 페이지로 이동
   const onPreviousPageClick = () =>
