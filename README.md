@@ -1,5 +1,7 @@
 ## 📝 Description
 
+### [과제 배포 링크](https://block-odyssey-assignment-wnnv.vercel.app/)
+
 블록오디세이 과제입니다.
 리액트 쿼리를 사용하여 서버 상태 관리를 했습니다.
 리덕스 툴킷으로 전역 상태 관리를 진행했습니다.
