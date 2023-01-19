@@ -1,70 +1,150 @@
-# Getting Started with Create React App
+## 📝 Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://user-images.githubusercontent.com/72599761/208735013-d434f903-1e63-48bd-a84f-327389c865d8.png)
 
-## Available Scripts
+블록오디세이 과제입니다.
+리액트 쿼리를 사용하여 서버 상태 관리를 했습니다.
+리덕스 툴킷으로 전역 상태 관리를 진행했습니다.
 
-In the project directory, you can run:
+## 🛠️ Dev Tools
+
+<img src="https://img.shields.io/badge/redux_toolkit-A102CF?style=for-the-badge&logo=redux&logoColor=white"> <img src="https://img.shields.io/badge/react_query-DB7093?style=for-the-badge&logo=react-query&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+
+<br>
+
+## **🖥 프로젝트 실행 방법**
+
+### `yarn install`
 
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br><br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## **📝 디렉토리 구조**
 
-### `yarn test`
+<details>
+<summary>디렉토리 구조</summary>
+<div markdown="1">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+📂src
+│  📄App.css
+│  📄App.js
+│  📄index.css
+│  📄index.js
+│
+├─📂api
+│      📄adminService.js
+│      📄apiConfig.js
+│      📄axiosInstance.js
+│      📄httpService.js
+│
+├─📂assets
+├─📂component
+│  ├─📂elements
+│  │  ├─📂button
+│  │  │      📄Button.jsx
+│  │  │      📄Button.module.css
+│  │  │
+│  │  ├─📂input
+│  │  │      📄Input.jsx
+│  │  │      📄Input.module.css
+│  │  │
+│  │  └─📂select
+│  │      │  📄SelectButton.jsx
+│  │      │  📄SelectButton.module.css
+│  │      │
+│  │      └─📂selectOptions
+│  │              📄searchConditionOptions.js
+│  │
+│  └─📂main
+│      ├─📂listItem
+│      │      📄ListItem.jsx
+│      │      📄ListItem.module.css
+│      │
+│      ├─📂listSection
+│      │      📄ListSection.jsx
+│      │      📄ListSection.module.css
+│      │
+│      ├─📂pagination
+│      │      📄Pagination.jsx
+│      │      📄Pagination.module.css
+│      │
+│      └─📂searchSection
+│              📄SearchSection.jsx
+│              📄SearchSection.module.css
+│
+├─📂pages
+│  └─📂main
+│          📄Main.jsx
+│          📄Main.module.css
+│
+├─📂redux
+│  │  📄store.js
+│  │
+│  └─📂modules
+│          📄adminSlice.js
+│
+└─📂utils
+        📄ellipsisFunction.js
 
-### `yarn build`
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### 1. 📂 api 폴더
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+axios CRUD와 관련된 함수들을 추상화하여 관리
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### 2. 📂 components 폴더
 
-### `yarn eject`
+- elements : 자주 사용하는 Button, Input, Select과 같은 재사용 빈도가 높은 컴포넌트들을 elements 폴더에서 관리
+- main : admin 메인페이지에서 사용하는 데이터와 직접적으로 관련이 있는 컴포넌트들을 main 폴더에서 관리
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### 3. 📂 pages 폴더
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+어떤 모듈들이 결합되어 있는지 직관적으로 보여줄 수 있을만한 컴포넌트가 필요하다고 생각했습니다.  
+모듈들의 결합 상태를 보여주는 컴포넌트만 관리하는 폴더
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### 5. 📂 redux 폴더
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+redux와 관련되어 있는 폴더 store와 slice 존재
 
-## Learn More
+#### 7. 📂 utils 폴더
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+기타 함수들을 관리하는 폴더
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+</div>
+</details>
 
-### Code Splitting
+<br><br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🔒 커밋 규칙
 
-### Analyzing the Bundle Size
+<details>
+<summary>커밋 규칙</summary>
+<div markdown="1">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## **commit message 규칙**
 
-### Making a Progressive Web App
+⭐ feat : 새로운 기능에 대한 커밋
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+🛠 fix : 버그 수정에 대한 커밋
 
-### Advanced Configuration
+🧱 build : 빌드 관련 파일 수정에 대한 커밋
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+👏 chore : 그 외 자잘한 수정에 대한 커밋
 
-### Deployment
+⚒ refactor :  코드 리팩토링에 대한 커밋
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+🎨 style : 코드 스타일 혹은 포맷 등에 관한 커밋
 
-### `yarn build` fails to minify
+✏ docs : 문서 수정에 대한 커밋
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+💡 ci : CI관련 설정 수정에 대한 커밋
+
+🚫 제목 끝에 마침표 금지
+⚠ 무엇을 했는지 명확하게 작성
+
+</div>
+</details>
+
+<br><br>
