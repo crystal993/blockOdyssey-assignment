@@ -1,7 +1,5 @@
 ## 📝 Description
 
-![image](https://user-images.githubusercontent.com/72599761/208735013-d434f903-1e63-48bd-a84f-327389c865d8.png)
-
 블록오디세이 과제입니다.
 리액트 쿼리를 사용하여 서버 상태 관리를 했습니다.
 리덕스 툴킷으로 전역 상태 관리를 진행했습니다.
