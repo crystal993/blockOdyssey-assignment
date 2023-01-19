@@ -24,15 +24,5 @@
     align-items: flex-start;
 }
 
-.search_result {
-    display: block;
-    font-size: 12px;
-    font-weight: 400;
-    margin-top: -10px;
-}
 
-.highlight {
-    display: inline;
-    font-size: 12px;
-    font-weight: 600;
-}
+
